@@ -5,6 +5,7 @@ from uuid import uuid4
 from typing import TypeVar
 from .auth import Auth
 from models.user import User
+from flask import abort
 
 
 class SessionAuth(Auth):
