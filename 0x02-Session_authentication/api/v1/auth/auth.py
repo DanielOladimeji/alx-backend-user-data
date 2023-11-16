@@ -7,7 +7,7 @@ from os import getenv
 
 class Auth:
     """Manages the API auth"""
-    
+
     def session_cookie(self, request=None):
         """Get the value of the session cookie from the request."""
         if request is None:
