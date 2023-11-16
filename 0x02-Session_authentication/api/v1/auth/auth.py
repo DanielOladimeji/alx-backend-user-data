@@ -2,10 +2,20 @@
 """Define class Auth"""
 from flask import request
 from typing import List, TypeVar
+from os import getenv
 
 
 class Auth:
     """Manages the API auth"""
+    
+    def session_cookie(self, request=None):
+        """Get the value of the session cookie from the request."""
+        if request is None:
+            return None
+
+        session_cookie_name = getenv('SESSION_NAME', '_my_session_id')
+        return request.cookies.get(session_cookie_name)
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Determines if a given path requires auth or not"""
         if path is None:
